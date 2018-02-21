@@ -19,6 +19,9 @@
 #include <unordered_set>
 #include <signal.h>
 #include <netinet/tcp.h>
+#include <iostream>
+#include <chrono>
+#include <ctime>
 
 
 class Server
@@ -47,29 +50,22 @@ public:
     void ChooseSquare(int &x, int &y, Team * t);
     int initCon();
     int getNewClients(Team *, int, char*);
-    int sendData(int fd, Team *t);
+    void sendData(int fd, Team *t);
     int waitForData(Team *t);
     bool rightTeam(Team *t, int fd);
     void closeConnection();
+    bool checkClients(Team *t, Team *t2);
 
 
 
 private:
-    const int MAX_WAIT = 10;
     const int one = 1;
     Game *game;
-    int x;
-    int y;
-    int threads = 0;
-    int max_threads = 1;
     int servFd;
-    int port = 5556;
-    int res;
-    int moveTeamA;
-    const static int max_players=1;
+    int port = 5558;
+    const static int max_players=2;
     char message[10] ="123456789";
     char chosenOnes[3];
-//    int pll;
     pollfd nacoczekac[2*max_players];
 };
 

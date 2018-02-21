@@ -23,19 +23,9 @@ public:
         hit,
         miss,
         hidden,
+        ohterChoice,
+        finalChoice
     };
-   /* enum message{
-        sunk,
-        hit,
-        miss,
-        hidden,
-        connected,
-        waiting,
-        yourMove,
-        notYourMove,
-        tmChoice
-
-    };*/
     int getX();
     int getY();
     void drawBoard();

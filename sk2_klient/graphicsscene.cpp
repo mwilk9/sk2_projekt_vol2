@@ -78,6 +78,15 @@ QColor GraphicsScene::getSquareColor( Status st){
         g = 240;
         b = 240;
         break;
+    case 4: //otherchoice
+        r= 20;
+        g=80;
+        b=90;
+        break;
+    case 5:
+        r=255;
+        g=255;
+        b=60;
     default: //hidden
         r = 70;
         g = 70;

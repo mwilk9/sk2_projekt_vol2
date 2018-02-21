@@ -11,7 +11,7 @@ public:
     ~Team();
     int attackShip();
     void addClient(client c);
-    void removeClient(client c);
+    void removeClient(int);
     int getSize();
     vector<client> getClients() const;
     client getClient(int id);

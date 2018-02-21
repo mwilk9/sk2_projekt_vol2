@@ -21,7 +21,10 @@ int main(){
 
     servFd = s->initCon();
     signal(SIGINT, finish);
-    s->NewGame();
+    while (true){
+        s->NewGame();
+    }
+
 
     return 0;
 }

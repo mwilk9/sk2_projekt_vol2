@@ -7,7 +7,7 @@ Game::Game(Team *teams[2]){
     for (int k = 0; k<2;k++){
         players[k].t = teams[k];
         generateBoard(&players[k]);
-        printBoard(&players[k]);
+        //printBoard(&players[k]);
     }
 }
 

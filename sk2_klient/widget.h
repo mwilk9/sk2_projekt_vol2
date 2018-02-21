@@ -38,12 +38,15 @@ public:
     void connected();
     void disconnected();
     void gameOver(bool win);
+    void socketError();
+    void end();
 
 private slots:
     void timeEv();
 
 private:
     Ui::Widget *ui;
+
     int x;
     int y;
     GraphicsScene * scene;
@@ -53,15 +56,15 @@ private:
     QTcpSocket * sock;
     char message[9];
     bool yourTurn;
-    int prev_m;
     char *server = "127.0.0.1";
     char *protocol = "tcp";
-    short service_port = 5556;
+    short service_port = 5558;
     QTimer *timer;
-    int seconds = 60*10;
-    int milisec = 1000*10;
-    int player;
+    int const sec = 60;
+    int seconds = 60;
+    int milisec = 1000;
     char shipd[40];
+    bool game_end;
 };
 
 #endif // WIDGET_H

@@ -5,8 +5,7 @@ Team::Team(){
 }
 
 Team::~Team(){
-    //wyczysc informacje o klientach
-}
+ }
 
 void Team::addClient(client c){
     if (this->clients.size() < 5)
@@ -15,8 +14,8 @@ void Team::addClient(client c){
 
 
 
-void Team::removeClient(client c){
-    int id = this->hasClient(c.getFd());
+void Team::removeClient(int fd){
+    int id = this->hasClient(fd);
     clients.erase(clients.begin()+id);
 }
 

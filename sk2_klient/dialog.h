@@ -19,10 +19,9 @@ public:
     };
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
+    void setMessage(QString);
+    void setButtons(QString,QString);
 
-    Choice getChoice();
-    void setEmptyRoom();
-    void setJoin();
 private:
     Ui::Dialog *ui;
     Choice choice;

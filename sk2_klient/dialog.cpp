@@ -7,26 +7,23 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-    connect(ui->emptyRoomButton,&QPushButton::clicked , this, &Dialog::setEmptyRoom);
-    connect(ui->notEmptyRoomButton, &QPushButton::clicked, this, &Dialog::setJoin);
-    connect(ui->exitButton, SIGNAL(clicked()), this, SLOT(reject()));
+/*    connect(ui->accept,&QPushButton::clicked , this, &Dialog::setEmptyRoom);
+    connect(ui->notEmptyRoomButton, &QPushButton::clicked, this, &Dialog::setJoin);*/
+    //connect(ui->exitButton, SIGNAL(clicked()), this, SLOT(reject()));
+    connect(ui->accept,SIGNAL(clicked()), this, SLOT(accept()));
+    connect(ui->cancel, SIGNAL(clicked()), this, SLOT(reject()));
 }
 
 Dialog::~Dialog(){
     delete ui;
 }
 
-Dialog::Choice Dialog::getChoice(){
-    if (exec()) return choice;
-    else return Dialog::exit;
+void Dialog::setMessage(QString t){
+    ui->label->setText(t);
 }
 
-void Dialog::setEmptyRoom(){
-    choice = emptyRoom;
-    accept();
+void Dialog::setButtons(QString t1, QString t2){
+    ui->accept->setText(t1);
+    ui->cancel->setText(t2);
 }
 
-void Dialog::setJoin(){
-    choice = join;
-    accept();
-}
